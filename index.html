@@ -1,154 +1,197 @@
 <!DOCTYPE html>
 <html lang="fa">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>پروفایل شایان اکرمیان — آکادمی فوتبال سورنا</title>
 <style>
-  :root{
-    --brand-yellow: #f2c94c;
-    --brand-yellow-dark: #e0b43a;
-    --brand-black: #0b0b0b;
-    --card-bg: #fff8e6;
-    --muted: #595959;
-  }
+:root{
+  --brand-yellow: #FFD700;
+  --brand-yellow-dark: #FFC300;
+  --brand-black: #0b0b0b;
+  --card-bg: #fff8e6;
+  --muted: #595959;
+}
 
-  html,body{height:100%}
-  body { 
-    font-family: "Segoe UI", Tahoma, "Helvetica Neue", Arial, sans-serif; 
-    background: linear-gradient(180deg, #fffdfa 0%, #fffaf0 100%);
-    margin:0; padding:0 14px 40px; color:var(--brand-black); direction:rtl;
-    -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
-  }
+html,body{height:100%; margin:0; padding:0; font-family:"Segoe UI", Tahoma, sans-serif;}
 
-  /* Splash Screen */
-  #splash {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    background-color: var(--brand-yellow);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: var(--brand-black);
-    font-size: 4rem;
-    font-weight: 900;
-    z-index: 9999;
-    transition: opacity 0.5s ease;
-  }
+/* Splash Screen */
+#splash {
+  position: fixed;
+  top:0; left:0;
+  width:100%; height:100%;
+  background: linear-gradient(135deg, var(--brand-yellow), var(--brand-yellow-dark));
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  font-size:4rem;
+  font-weight:900;
+  color:var(--brand-black);
+  z-index:9999;
+  transition: opacity 0.8s ease;
+}
 
-  #main-content { display:none; }
+#main-content { display:none; }
 
-  header {
-    text-align:center; margin:0 0 18px; padding:28px 18px;
-    background: linear-gradient(90deg, var(--brand-yellow), var(--brand-yellow-dark));
-    color:var(--brand-black); border-radius:0 0 16px 16px; 
-    box-shadow:0 8px 30px rgba(14,12,12,0.12); position:relative; z-index:1;
-    border-bottom:4px solid var(--brand-black);
-  }
-  header h1 { margin:0; font-size:2.2rem; font-weight:800; letter-spacing:0.6px; }
-  header h2 { margin:8px 0 0; font-size:1.05rem; font-weight:600; color:var(--muted); }
+/* صفحه اصلی */
+header {
+  text-align:center; margin:0 0 18px; padding:28px 18px;
+  background: linear-gradient(90deg, var(--brand-yellow), var(--brand-yellow-dark));
+  color:var(--brand-black); border-radius:0 0 16px 16px; 
+  box-shadow:0 8px 30px rgba(14,12,12,0.12); position:relative; z-index:1;
+  border-bottom:4px solid var(--brand-black);
+}
+header h1 { margin:0; font-size:2.2rem; font-weight:800; letter-spacing:0.6px; }
+header h2 { margin:8px 0 0; font-size:1.05rem; font-weight:600; color:var(--muted); }
 
-  .container { max-width:920px; margin:18px auto; }
+.container { max-width:920px; margin:18px auto; }
 
-  .player-card {
-    display:flex; gap:18px; align-items:center; background:var(--card-bg); 
-    padding:18px; border-radius:14px; box-shadow:0 8px 24px rgba(11,11,11,0.06);
-    border:1px solid rgba(0,0,0,0.06);
-  }
-  .player-photo {
-    width:190px; height:190px; object-fit:cover; border-radius:12px;
-    box-shadow:0 6px 18px rgba(11,11,11,0.12); border:3px solid var(--brand-black);
-    flex-shrink:0;
-  }
-  .player-info { flex:1; text-align:right; }
-  .player-info h3 { margin:0; font-size:1.45rem; font-weight:800; color:var(--brand-black); }
-  .player-info p { margin:6px 0 0; color:var(--muted); font-weight:600; }
+.player-card {
+  display:flex; gap:18px; align-items:center; background:var(--card-bg); 
+  padding:18px; border-radius:14px; box-shadow:0 8px 24px rgba(11,11,11,0.06);
+  border:1px solid rgba(0,0,0,0.06);
+}
+.player-photo {
+  width:190px; height:190px; object-fit:cover; border-radius:12px;
+  box-shadow:0 6px 18px rgba(11,11,11,0.12); border:3px solid var(--brand-black);
+  flex-shrink:0;
+}
+.player-info { flex:1; text-align:right; }
+.player-info h3 { margin:0; font-size:1.45rem; font-weight:800; color:var(--brand-black); }
+.player-info p { margin:6px 0 0; color:var(--muted); font-weight:600; }
 
-  /* تگ بازیکن تیم نونهالان بدون کادر مشکی */
-  .tag {
-    display:inline-block; margin-top:10px; padding:6px 10px; border-radius:999px;
-    background:none; color:var(--brand-black); font-weight:700;
-    box-shadow:none;
-    font-size:0.95rem;
-  }
+/* تگ بازیکن تیم نونهالان بدون کادر مشکی */
+.tag {
+  display:inline-block; margin-top:10px; padding:6px 10px; border-radius:999px;
+  background:none; color:var(--brand-black); font-weight:700;
+  box-shadow:none;
+  font-size:0.95rem;
+}
 
-  /* گالری منو رنگی */
-  .gallery-menu {
-    max-width:420px; 
-    margin:18px auto; 
-    padding:14px 18px;
-    background: linear-gradient(90deg, var(--brand-yellow), var(--brand-yellow-dark));
-    border-radius:12px; 
-    text-align:center; 
-    font-weight:800;
-    font-size:1.05rem; 
-    color:var(--brand-black);
-    cursor:pointer; 
-    user-select:none; 
-    border:2px solid var(--brand-black);
-    transition: transform .25s, box-shadow .25s, background .25s;
-  }
-  .gallery-menu:hover, .gallery-menu:focus {
-    transform: translateY(-4px); 
-    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
-    background: linear-gradient(90deg, #fff3b0, #f2c94c);
-    outline: none;
-  }
+/* گالری منو رنگی */
+.gallery-menu {
+  max-width:420px; 
+  margin:18px auto; 
+  padding:14px 18px;
+  background: linear-gradient(90deg, var(--brand-yellow), var(--brand-yellow-dark));
+  border-radius:12px; 
+  text-align:center; 
+  font-weight:800;
+  font-size:1.05rem; 
+  color:var(--brand-black);
+  cursor:pointer; 
+  user-select:none; 
+  border:2px solid var(--brand-black);
+  transition: transform .25s, box-shadow .25s, background .25s;
+}
+.gallery-menu:hover, .gallery-menu:focus {
+  transform: translateY(-4px); 
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  background: linear-gradient(90deg, #fff3b0, #FFD700);
+  outline: none;
+}
 
-  .post-suggestion {
-    max-width:720px; margin:10px auto; padding:10px 16px;
-    background:#fff; font-size:1rem; font-weight:600; color:var(--muted);
-    border-radius:10px; border-left:6px solid var(--brand-yellow);
-    text-align:right; width:fit-content;
-  }
-  .post-suggestion span { font-weight:800; font-size:1.05rem; color:var(--brand-black); margin-right:10px; }
+.post-suggestion {
+  max-width:720px; margin:10px auto; padding:10px 16px;
+  background:#fff; font-size:1rem; font-weight:600; color:var(--muted);
+  border-radius:10px; border-left:6px solid var(--brand-yellow);
+  text-align:right; width:fit-content;
+}
+.post-suggestion span { font-weight:800; font-size:1.05rem; color:var(--brand-black); margin-right:10px; }
 
-  .menu-container { max-width:720px; margin:20px auto; border-radius:12px; overflow:hidden; }
-  .menu-item { border-bottom:1px solid rgba(11,11,11,0.06); background:#fff; }
-  .menu-item button {
-    width:100%; background:transparent; border:none; text-align:right;
-    font-size:1.05rem; font-weight:700; padding:16px 18px; cursor:pointer; color:var(--brand-black);
-    display:flex; justify-content:space-between; align-items:center;
-    transition:background-color .18s, color .18s, transform .15s;
-  }
-  .menu-item button:hover, .menu-item button:focus { background:linear-gradient(90deg,#fffaf5,#fff6e3); transform:translateX(-3px); outline:none; }
-  .menu-item.active button {
-    background: linear-gradient(90deg, rgba(242,201,76,0.12), rgba(224,180,58,0.08));
-    color:var(--brand-black);
-    box-shadow: inset 0 -3px 0 rgba(0,0,0,0.03);
-  }
-  .menu-item .content {
-    display:none; padding:14px 18px 20px; font-size:0.98rem; line-height:1.7; color:#232323;
-    background:linear-gradient(180deg,#fff,#fffaf2);
-  }
-  .menu-item.active .content { display:block; }
+.menu-container { max-width:720px; margin:20px auto; border-radius:12px; overflow:hidden; }
+.menu-item { border-bottom:1px solid rgba(11,11,11,0.06); background:#fff; }
+.menu-item button {
+  width:100%; background:transparent; border:none; text-align:right;
+  font-size:1.05rem; font-weight:700; padding:16px 18px; cursor:pointer; color:var(--brand-black);
+  display:flex; justify-content:space-between; align-items:center;
+  transition:background-color .18s, color .18s, transform .15s;
+}
+.menu-item button:hover, .menu-item button:focus { background:linear-gradient(90deg,#fffaf5,#fff6e3); transform:translateX(-3px); outline:none; }
+.menu-item.active button {
+  background: linear-gradient(90deg, rgba(255,215,0,0.12), rgba(255,195,0,0.08));
+  color:var(--brand-black);
+  box-shadow: inset 0 -3px 0 rgba(0,0,0,0.03);
+}
+.menu-item .content {
+  display:none; padding:14px 18px 20px; font-size:0.98rem; line-height:1.7; color:#232323;
+  background:linear-gradient(180deg,#fff,#fffaf2);
+}
+.menu-item.active .content { display:block; }
 
-  .scores-item button {
-    font-size:1.18rem; padding:18px 18px; background:linear-gradient(90deg,var(--brand-yellow),var(--brand-yellow-dark));
-    color:var(--brand-black); border-radius:10px; margin:12px; box-shadow:0 8px 26px rgba(224,180,58,0.18);
-    border:2px solid var(--brand-black);
-  }
-  .scores-item .content {
-    background: linear-gradient(180deg, rgba(11,11,11,0.92), rgba(34,34,34,0.95));
-    color:var(--brand-yellow); border-radius:10px; padding:18px; margin:0 12px 18px;
-    box-shadow:0 10px 30px rgba(11,11,11,0.35); font-weight:700;
-  }
-  .scores-list { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
-  .scores-list li { background: rgba(242,201,76,0.12); padding:10px 12px; border-radius:8px; color:var(--brand-black); font-weight:800; text-align:center; }
+.scores-item button {
+  font-size:1.18rem; padding:18px 18px; background:linear-gradient(90deg,var(--brand-yellow),var(--brand-yellow-dark));
+  color:var(--brand-black); border-radius:10px; margin:12px; box-shadow:0 8px 26px rgba(224,180,58,0.18);
+  border:2px solid var(--brand-black);
+}
+.scores-item .content {
+  background: linear-gradient(180deg, rgba(11,11,11,0.92), rgba(34,34,34,0.95));
+  color:var(--brand-yellow); border-radius:10px; padding:18px; margin:0 12px 18px;
+  box-shadow:0 10px 30px rgba(11,11,11,0.35); font-weight:700;
+}
+.scores-list { list-style:none; padding:0; margin:0; display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); gap:10px; }
+.scores-list li { background: rgba(255,215,0,0.12); padding:10px 12px; border-radius:8px; color:var(--brand-black); font-weight:800; text-align:center; }
 
-  .score-label { text-align:center; font-weight:800; font-size:1.05rem; color:var(--muted); margin-top:22px; }
-  .score-box {
-    margin:12px auto 28px; width:150px; height:150px;
-    background:linear-gradient(135deg, var(--brand-yellow), var(--brand-yellow-dark));
-    color:var(--brand-black); font-size:3.2rem; font-weight:900; border-radius:14px;
-    display:flex; align-items:center; justify-content:center;
-    box-shadow:0 16px 40px rgba(224,180,58,0.18);
-    border:3px solid var(--brand-black);
-  }
+.score-label { text-align:center; font-weight:800; font-size:1.05rem; color:var(--muted); margin-top:22px; }
+.score-box {
+  margin:12px auto 28px; width:150px; height:150px;
+  background:linear-gradient(135deg, var(--brand-yellow), var(--brand-yellow-dark));
+  color:var(--brand-black); font-size:3.2rem; font-weight:900; border-radius:14px;
+  display:flex; align-items:center; justify-content:center;
+  box-shadow:0 16px 40px rgba(224,180,58,0.18);
+  border:3px solid var(--brand-black);
+}
 
-  .audio-section {
-    max-width:720px; margin:18px auto; background:linear-gradient(90deg,#fff,#fff7e6);
-    border:2px solid rgba(11,11,11,0.06); border-radius:12px; padding:14px; text-align:center;
-    font-weight:800; color:var(--brand-black);
-  }
+.audio-section {
+  max-width:720px; margin:18px auto; background:linear-gradient(90deg,#fff,#fff7e6);
+  border:2px solid rgba(11,11,11,0.06); border-radius:12px; padding:14px; text-align:center;
+  font-weight:800; color:var(--brand-black);
+}
+.audio-section strong { display:block; font-size:1.05rem; margin-bottom:8px; }
+.audio-section audio { width:100%; max-width:420px; border-radius:8px; box-shadow:0 8px 22px rgba(11,11,11,0.06); }
+
+.insta-box {
+  max-width:240px; margin:18px auto; padding:10px 14px; background:#111111; color:var(--brand-yellow);
+  border-radius:10px; text-align:center; font-weight:800; border:2px solid rgba(255,215,0,0.16);
+}
+.insta-box .insta-handle { display:block; margin-top:6px; color:var(--brand-yellow); font-weight:900; }
+
+.footer-text {
+  text-align:center; margin:28px 0 30px; font-size:1rem; font-weight:900; color:var(--brand-black);
+  letter-spacing:0.3px;
+}
+
+@media (max-width:700px){
+  .player-card{flex-direction:column; align-items:center; text-align:center}
+  .player-info{width:100%}
+  .player-photo{width:170px;height:170px}
+  .scores-list{grid-template-columns:repeat(2,1fr)}
+  .scores-item button{margin:10px}
+}
+</style>
+</head>
+<body>
+
+<!-- Splash Screen -->
+<div id="splash">آکادمی فوتبال سورنا</div>
+
+<!-- محتوای اصلی -->
+<div id="main-content">
+
+<header>
+  <h1>آکادمی فوتبال سورنا</h1>
+  <h2>آنالیز تخصصی بازیکن — شایان اکرمیان</h2>
+</header>
+
+<main class="container">
+
+  <section class="player-card" aria-label="کارت بازیکن">
+    <img class="player-photo" src="https://uploadkon.ir/uploads/03ef06_25Screenshot-۲۰۲۵۰۷۰۶-۱۶۳۵۴۱-Instagram.jpg" alt="عکس شایان اکرمیان" />
+    <div class="player-info">
+      <h3>شایان اکرمیان</h3>
+      <p>پست پیشنهادی: هافبک چپ</p>
+      <span class="tag">بازیکن تیم نونهالان</span>
+    </div>
+  </section>
+
+  <div class
