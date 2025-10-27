@@ -21,7 +21,7 @@ body {
     background-image: url('https://s6.uupload.ir/files/img_4053_pjhk.jpg');
     background-size: cover;
     background-position: center;
-  }
+}
 header {
     text-align: center;
     background-color: #ffeb3b;
@@ -64,17 +64,19 @@ header {
     background-color: #ffeb3b;
     padding: 6px;
     border-bottom: 2px solid orange;
-    position: relative;
+    flex-wrap: wrap;
 }
 .menu-item { position: relative; }
 .menu-button {
     background-color: purple;
     color: #ffeb3b;
     border: none;
-    padding: 25px 25px;
+    padding: 20px 20px;
     cursor: pointer;
-    font-size: 20px;
+    font-size: 18px;
     border-radius: 40px;
+    min-width: 180px;
+    margin-bottom: 5px;
 }
 .menu-button:hover { background-color: #333; }
 .content {
@@ -84,18 +86,20 @@ header {
     left: 0;
     background-color: #fff799;
     color: black;
-    padding: 25px;
+    padding: 15px;
     border: 3px solid black;
     border-radius: 5px;
     width: 400px;
+    max-width: 90vw;
     z-index: 10;
 }
 .skill-item {
     display: flex;
     align-items: center;
     margin-bottom: 10px;
+    flex-wrap: wrap;
 }
-.skill-item span { width: 60%; }
+.skill-item span { width: 60%; font-size: 14px; }
 .skill-bar {
     width: 35%;
     height: 20px;
@@ -116,6 +120,7 @@ header {
 }
 .photo-box {
     width: 400px;
+    max-width: 95vw;
     height: 600px;
     margin: 30px auto;
     border: 3px solid black;
@@ -157,10 +162,18 @@ header {
 }
 footer {
     text-align: center;
-    padding: 27px;
+    padding: 20px;
     font-weight: bold;
     border-top: 3px solid black;
     color: black;
+}
+@media screen and (max-width: 768px) {
+    .sub-box { width: 90%; font-size: 16px; }
+    .menu-button { font-size: 16px; padding: 15px 15px; min-width: 140px; }
+    .id-photo { position: relative; top: 0; right: 0; margin: 10px auto; display: block; }
+    .content { position: relative; top: 0; left: 0; width: 90%; margin-top: 10px; }
+    .skill-item span { width: 100%; margin-bottom: 3px; }
+    .skill-bar { width: 100%; margin-left: 0; }
 }
 </style>
 </head>
@@ -202,7 +215,7 @@ footer {
     <button class="menu-button" onclick="toggleContent('menu3', this)">مشخصات فردی</button>
     <div id="menu3" class="content">
       <p>یاسین میری</p>
-      <p> رده سنی : نونهال<p>
+      <p>رده سنی : نونهال</p>
       <p>نام پدر: فاضل</p>
       <p>محل تولد: فیروزآباد</p>
       <p>تاریخ تولد: 10 آذر 1393</p>
@@ -249,10 +262,11 @@ document.addEventListener('click', function(event) {
   const isContent = event.target.classList.contains('content');
   if (!isMenuButton && !isContent) {
     const allContents = document.querySelectorAll('.content');
-    allContents.forEach(c => c.style.display = 'none');
+    allContents.forEach(c => c.style.display = 'none';
   }
 });
 
+// عکس چندتایی
 const photos = [
     "https://s6.uupload.ir/files/img_5063_(1)_788053_b1c4.jpg",
     "https://via.placeholder.com/400x600?text=Photo+2",
